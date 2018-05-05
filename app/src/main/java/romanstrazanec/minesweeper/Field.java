@@ -1,6 +1,8 @@
 package romanstrazanec.minesweeper;
 
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 
 public class Field {
@@ -147,6 +149,13 @@ public class Field {
         int tileX = (int) ((x - start.x) / widthoftile);
         int tileY = (int) ((y - start.y) / widthoftile);
         if (x < width && y < height) placeFlag(tileX, tileY);
+    }
+
+    public void draw(Canvas canvas, Paint paint) {
+        for (int j = 0; j < height; j++)
+            for (int i = 0; i < width; i++) {
+                tiles[i][j].draw(canvas, paint);
+            }
     }
 
     public int getWidthofField() {
