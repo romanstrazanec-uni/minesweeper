@@ -3,4 +3,7 @@
     <string name="app_name">Míny</string>
     <string name="new_game">Nová Hra</string>
     <string name="leave_game">Opustiť Hru</string>
+    <string name="are_you_sure_you_want_to_leave_game">Naozaj si prajete opustiť hru?</string>
+    <string name="yes">Áno</string>
+    <string name="no">Nie</string>
 </resources>

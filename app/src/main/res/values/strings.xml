@@ -3,4 +3,7 @@
 
     <string name="new_game">New Game</string>
     <string name="leave_game">Leave Game</string>
+    <string name="are_you_sure_you_want_to_leave_game">Are you sure you want to leave game?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
