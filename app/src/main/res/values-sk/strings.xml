@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Míny</string>
+    <string name="new_game">Nová Hra</string>
+    <string name="leave_game">Opustiť Hru</string>
+</resources>
