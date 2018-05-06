@@ -13,4 +13,11 @@
         android:onClick="newGame"
         android:text="@string/new_game" />
 
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="settings"
+        android:text="@string/settings" />
+
 </LinearLayout>
