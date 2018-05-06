@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 public class GameCanvas extends View {
+    DBHelper dbh;
     Paint paint;
     Point size;
     Field field;
@@ -22,6 +23,7 @@ public class GameCanvas extends View {
 
     public GameCanvas(Context context) {
         super(context);
+        dbh = new DBHelper(context);
         paint = new Paint();
         size = getMaxPoint(context);
         newGame();
@@ -38,7 +40,7 @@ public class GameCanvas extends View {
     public void newGame() {
         timer = false;
         time = 0;
-        field = new Field(new Point(0, (int) (size.y * .05)), size.x, size.y);
+        field = new Field(new Point(0, (int) (size.y * .05)), size.x, size.y, dbh.getSettings());
         timeCounter = new Counter(5, size.y * .035f, field.getWidthofTile() / 2, time);
         minesCounter = new Counter(size.x - field.getWidthofTile() / 2 - 15, size.y * .035f, field.getWidthofTile() / 2, field.getBombs());
         banner = new Banner(new Rect(field.getStart().x + field.getWidthofTile() * field.getWidthofField() / 3, field.getStart().y + field.getWidthofTile() * field.getHeightofField() / 3,

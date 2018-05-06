@@ -13,17 +13,40 @@ public class Field {
     private boolean firstclick, dead, colorfulnumbers;
     private Tile[][] tiles;
 
-    public Field(Point start, float windowWidth, float windowHeight) {
+    public Field(Point start, float windowWidth, float windowHeight, Settings settings) {
         this.start = start;
         this.windowWidth = windowWidth;
         this.windowHeight = windowHeight;
-        width = 9;
-        height = 9;
-        bombs = 10;
-        color = Color.BLUE;
-        colorfulnumbers = true;
+        if (settings != null) {
+            width = settings.getWidth();
+            height = settings.getHeight();
+            bombs = settings.getMines();
+            switch (settings.getColor()) {
+                case 1:
+                    color = Color.BLUE;
+                    break;
+                case 2:
+                    color = Color.GREEN;
+                    break;
+                case 3:
+                    color = Color.YELLOW;
+                    break;
+                case 4:
+                    color = Color.RED;
+                    break;
+                default:
+                    color = Color.BLUE;
+                    break;
+            }
+            colorfulnumbers = settings.getColorfulnumbers() == 1;
+        } else {
+            width = 9;
+            height = 9;
+            bombs = 10;
+            color = Color.BLUE;
+            colorfulnumbers = true;
+        }
         setWidthOfTile();
-
         flags = 0;
         opened = 0;
         firstclick = false;
