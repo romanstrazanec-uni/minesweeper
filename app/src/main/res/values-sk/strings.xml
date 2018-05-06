@@ -23,4 +23,6 @@
     <string name="red">Červená</string>
     <string name="colorful_numbers">Farebné čísla</string>
     <string name="changes_appear_in_new_game">Zmeny sa zobrazia v novej hre.</string>
+    <string name="last_saved">Naposledy uložené</string>
+    <string name="default_settings">Základné nastavenia</string>
 </resources>

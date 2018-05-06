@@ -1,7 +1,10 @@
 package romanstrazanec.minesweeper;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -15,6 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         etw = findViewById(R.id.width);
         eth = findViewById(R.id.height);
@@ -22,9 +26,35 @@ public class SettingsActivity extends AppCompatActivity {
         setSettings();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_last_saved:
+                setSettings();
+                return true;
+            case R.id.menu_default_settings:
+                ((RadioGroup) findViewById(R.id.difficulty)).check(R.id.easy);
+                etw.setText(String.valueOf(9));
+                eth.setText(String.valueOf(9));
+                etm.setText(String.valueOf(10));
+                setSizesEnabled(false);
+                ((RadioGroup) findViewById(R.id.color)).check(R.id.blue);
+                ((CheckBox) findViewById(R.id.colorful_numbers)).setChecked(true);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     public void save(View view) {
-        Settings s = new Settings(1, checkWidth(), checkHeight(), checkMines(), checkColor(), checkColorfulNumbers());
-        dbh.updateSettings(s);
+        dbh.updateSettings(new Settings(1, checkWidth(), checkHeight(), checkMines(), checkColor(), checkColorfulNumbers()));
         setResult(RESULT_OK);
         finish();
     }
@@ -37,7 +67,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (s.getWidth() == 9 && s.getHeight() == 9 && s.getMines() == 10) rg.check(R.id.easy);
         else if (s.getWidth() == 16 && s.getHeight() == 16 && s.getMines() == 40)
             rg.check(R.id.intermediate);
-        else if (s.getWidth() == 16 && s.getHeight() == 30 && s.getMines() == 99)
+        else if (s.getWidth() == 30 && s.getHeight() == 16 && s.getMines() == 99)
             rg.check(R.id.hard);
         else {
             rg.check(R.id.custom);

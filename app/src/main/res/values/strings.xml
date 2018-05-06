@@ -23,4 +23,6 @@
     <string name="red">Red</string>
     <string name="colorful_numbers">Colorful Numbers</string>
     <string name="changes_appear_in_new_game">Changes appear in new game.</string>
+    <string name="last_saved">Last saved</string>
+    <string name="default_settings">Default settings</string>
 </resources>
