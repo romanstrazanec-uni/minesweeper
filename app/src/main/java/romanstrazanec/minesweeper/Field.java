@@ -7,7 +7,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 
 public class Field {
-    Point start;
+    private Point start;
     private float windowWidth, windowHeight;
     private int width, height, bombs, flags, widthoftile, opened, color;
     private boolean firstclick, dead, colorfulnumbers;
@@ -157,6 +157,10 @@ public class Field {
             for (int i = 0; i < width; i++) {
                 tiles[i][j].draw(canvas, paint);
             }
+    }
+
+    public Point getStart() {
+        return start;
     }
 
     public int getWidthofField() {
