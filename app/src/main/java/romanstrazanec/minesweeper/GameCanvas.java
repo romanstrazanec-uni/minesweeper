@@ -44,7 +44,7 @@ public class GameCanvas extends View {
         if (longClick) longClickCount++;
         if (timer) {
             time++;
-            timeCounter.setNumber(time);
+            timeCounter.setNumber(time / 10);
         }
     }
 
@@ -57,7 +57,7 @@ public class GameCanvas extends View {
                     break;
                 case MotionEvent.ACTION_UP:
                     timer = true;
-                    if (longClickCount > 0) {
+                    if (longClickCount > 5) {
                         if (field.getBombs() - field.getFlags() > 0 || field.isFlag(motionEvent.getX(), motionEvent.getY())) {
                             field.longClick(motionEvent.getX(), motionEvent.getY());
                             minesCounter.setNumber(field.getBombs() - field.getFlags());

@@ -68,7 +68,7 @@ public class Tile {
                 paintTile(canvas, paint, Color.rgb(200, 150, 0));
                 break;
             case Color.RED:
-                paintTile(canvas, paint, Color.MAGENTA);
+                paintTile(canvas, paint, Color.rgb(255, 0, 128));
                 break;
         }
 
@@ -90,7 +90,7 @@ public class Tile {
                 paintTile(canvas, paint, Color.rgb(200, 150, 0));
                 break;
             case Color.RED:
-                paintTile(canvas, paint, Color.MAGENTA);
+                paintTile(canvas, paint, Color.rgb(255, 0, 128));
                 break;
         }
 
@@ -112,10 +112,10 @@ public class Tile {
                     paint.setColor(Color.YELLOW);
                     break;
                 case 6:
-                    paint.setColor(Color.YELLOW);
+                    paint.setColor(Color.rgb(255, 128, 0));
                     break;
                 case 7:
-                    paint.setColor(Color.MAGENTA);
+                    paint.setColor(Color.rgb(255, 0, 128));
                     break;
                 case 8:
                     paint.setColor(Color.CYAN);
@@ -152,7 +152,7 @@ public class Tile {
                         paintBomb(canvas, paint, Color.rgb(200, 150, 0));
                         break;
                     case Color.RED:
-                        paintBomb(canvas, paint, Color.MAGENTA);
+                        paintBomb(canvas, paint, Color.rgb(255, 0, 128));
                         break;
                 }
                 break;

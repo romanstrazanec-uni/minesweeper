@@ -14,7 +14,7 @@ public class UpdateThread extends Thread {
     public void run() {
         while (true) {
             try {
-                sleep(1000);
+                sleep(100);
             } catch (Exception ex) {
             }
             updatingHandler.sendEmptyMessage(0);
