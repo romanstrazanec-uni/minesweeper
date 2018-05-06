@@ -4,6 +4,7 @@ public class Contract {
 
     public class Settings {
         public static final String TABLE_NAME = "Settings";
+        public static final String COLUMN_ID = "_id";
         public static final String COLUMN_WIDTH = "width";
         public static final String COLUMN_HEIGHT = "height";
         public static final String COLUMN_MINES = "mines";
