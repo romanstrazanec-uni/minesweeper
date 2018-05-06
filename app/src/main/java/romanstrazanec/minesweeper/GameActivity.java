@@ -1,6 +1,7 @@
 package romanstrazanec.minesweeper;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
     UpdateThread updateThread;
@@ -40,11 +42,24 @@ public class GameActivity extends AppCompatActivity {
             case R.id.menu_new_game:
                 gameCanvas.newGame();
                 return true;
+            case R.id.menu_settings:
+                startActivityForResult(new Intent(GameActivity.this, SettingsActivity.class), 1);
+                return true;
             case R.id.menu_leave_game:
                 finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK)
+                    Toast.makeText(this, R.string.changes_appear_in_new_game, Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 

@@ -25,6 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
     public void save(View view) {
         Settings s = new Settings(1, checkWidth(), checkHeight(), checkMines(), checkColor(), checkColorfulNumbers());
         dbh.updateSettings(s);
+        setResult(RESULT_OK);
         finish();
     }
 

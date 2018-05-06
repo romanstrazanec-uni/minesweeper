@@ -22,4 +22,5 @@
     <string name="yellow">Yellow</string>
     <string name="red">Red</string>
     <string name="colorful_numbers">Colorful Numbers</string>
+    <string name="changes_appear_in_new_game">Changes appear in new game.</string>
 </resources>

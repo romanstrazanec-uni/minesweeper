@@ -22,4 +22,5 @@
     <string name="yellow">Žltá</string>
     <string name="red">Červená</string>
     <string name="colorful_numbers">Farebné čísla</string>
+    <string name="changes_appear_in_new_game">Zmeny sa zobrazia v novej hre.</string>
 </resources>
