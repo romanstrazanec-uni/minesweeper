@@ -27,7 +27,7 @@ public class Tile {
         paint.setColor(Color.BLACK);
         canvas.drawRect(start.x, start.y, start.x + width, start.y + width, paint);
         paint.setColor(color);
-        canvas.drawRect(start.x + 2, start.y + 2, start.x + width - 2, start.y + width - 2, paint);
+        canvas.drawRect(start.x + width / 60, start.y + width / 60, start.x + width - width / 60, start.y + width - width / 60, paint);
     }
 
     private void paintSelectedTile(Canvas canvas, Paint paint) {
@@ -50,7 +50,7 @@ public class Tile {
     private void paintBomb(Canvas canvas, Paint paint, int color) {
         paintTile(canvas, paint, color);
         paint.setColor(Color.DKGRAY);
-        canvas.drawCircle(start.x + width / 2, start.y + width / 2, (width - 4) / 2, paint);
+        canvas.drawCircle(start.x + width / 2, start.y + width / 2, (width - width / 12) / 2, paint);
     }
 
     private void paintBlownBomb(Canvas canvas, Paint paint) {
@@ -60,7 +60,8 @@ public class Tile {
 
     private void paintFlag(Canvas canvas, Paint paint) {
         switch (color) {
-            case Color.BLUE | Color.GREEN:
+            case Color.BLUE:
+            case Color.GREEN:
                 paintTile(canvas, paint, Color.GRAY);
                 break;
             case Color.YELLOW:
@@ -74,14 +75,15 @@ public class Tile {
         if (color == Color.RED) paint.setColor(Color.YELLOW);
         else paint.setColor(Color.RED);
 
-        canvas.drawRect(start.x + 4, start.y + 4, start.x + width - 4, start.y + width / 2 - 4, paint);
+        canvas.drawRect(start.x + width / 12, start.y + width / 12, start.x + width - width / 12, start.y + width / 2 - width / 12, paint);
         paint.setColor(Color.WHITE);
-        canvas.drawLine(start.x + width - 4, start.y + 4, start.x + width - 4, start.y + width - 4, paint);
+        canvas.drawLine(start.x + width - width / 12, start.y + width / 12, start.x + width - width / 12, start.y + width - width / 12, paint);
     }
 
     private void paintOpenTile(Canvas canvas, Paint paint) {
         switch (color) {
-            case Color.BLUE | Color.GREEN:
+            case Color.BLUE:
+            case Color.GREEN:
                 paintTile(canvas, paint, Color.GRAY);
                 break;
             case Color.YELLOW:
@@ -124,7 +126,8 @@ public class Tile {
         } else paint.setColor(Color.BLACK);
 
         if (numberofnearbombs != 0) {
-            canvas.drawText(String.valueOf(numberofnearbombs), start.x + width / 2 - 4, start.y + width / 2 - 4, paint);
+            paint.setTextSize(width / 3);
+            canvas.drawText(String.valueOf(numberofnearbombs), start.x + width / 2 - width / 12, start.y + width / 2 + width / 12, paint);
         }
     }
 
@@ -141,14 +144,15 @@ public class Tile {
                 break;
             case 3:
                 switch (color) {
-                    case Color.BLUE | Color.GREEN:
-                        paintTile(canvas, paint, Color.GRAY);
+                    case Color.BLUE:
+                    case Color.GREEN:
+                        paintBomb(canvas, paint, Color.GRAY);
                         break;
                     case Color.YELLOW:
-                        paintTile(canvas, paint, Color.rgb(200, 150, 0));
+                        paintBomb(canvas, paint, Color.rgb(200, 150, 0));
                         break;
                     case Color.RED:
-                        paintTile(canvas, paint, Color.MAGENTA);
+                        paintBomb(canvas, paint, Color.MAGENTA);
                         break;
                 }
                 break;

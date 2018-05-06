@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.Rect;
 
 public class Field {
     Point start;
@@ -148,7 +149,7 @@ public class Field {
     public void longClick(float x, float y) {
         int tileX = (int) ((x - start.x) / widthoftile);
         int tileY = (int) ((y - start.y) / widthoftile);
-        if (x < width && y < height) placeFlag(tileX, tileY);
+        if (tileX < width && tileY < height) placeFlag(tileX, tileY);
     }
 
     public void draw(Canvas canvas, Paint paint) {
@@ -194,5 +195,9 @@ public class Field {
 
     public int getOpened() {
         return opened;
+    }
+
+    public Rect getRect() {
+        return new Rect(start.x, start.y, start.x + widthoftile * width, start.y + widthoftile * height);
     }
 }

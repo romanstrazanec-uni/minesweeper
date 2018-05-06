@@ -6,17 +6,18 @@ import android.graphics.Paint;
 
 public class Counter {
     private int number;
-    private float x, y;
+    private float x, y, textSize;
 
-    public Counter(float x, float y, int number) {
+    public Counter(float x, float y, float textSize, int number) {
         this.x = x;
         this.y = y;
         this.number = number;
+        this.textSize = textSize;
     }
 
     public void draw(Canvas canvas, Paint paint) {
         paint.setColor(Color.BLACK);
-        paint.setTextSize(12);
+        paint.setTextSize(textSize);
         canvas.drawText(String.valueOf(number), x, y, paint);
     }
 
