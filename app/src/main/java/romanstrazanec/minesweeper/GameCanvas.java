@@ -59,7 +59,7 @@ public class GameCanvas extends View {
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (field.getRect().contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
-            if (!field.isDead() && field.getWidthofField() * field.getHeightofField() - field.getOpened() != field.getBombs()) {
+            if (!field.isDead() && !field.isWon()) {
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         longClick = true;
@@ -77,7 +77,7 @@ public class GameCanvas extends View {
                                 timer = false;
                                 setLossBanner();
                             }
-                            if (field.getWidthofField() * field.getHeightofField() - field.getOpened() == field.getBombs()) {
+                            if (field.isWon()) {
                                 timer = false;
                                 field.openAllTiles();
                                 setWinBanner();
@@ -116,5 +116,9 @@ public class GameCanvas extends View {
         timeCounter.draw(canvas, paint);
         minesCounter.draw(canvas, paint);
         banner.draw(canvas, paint);
+    }
+
+    public boolean isTimer() {
+        return timer;
     }
 }

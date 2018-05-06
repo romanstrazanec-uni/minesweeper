@@ -216,6 +216,10 @@ public class Field {
         return tiles[tileX][tileY].isFlag();
     }
 
+    public boolean isWon() {
+        return getWidthofField() * getHeightofField() - getOpened() == getBombs();
+    }
+
     public boolean isDead() {
         return dead;
     }

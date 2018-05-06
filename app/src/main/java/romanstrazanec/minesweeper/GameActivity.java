@@ -65,22 +65,24 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-        builder.setMessage(R.string.are_you_sure_you_want_to_leave_game).setTitle(R.string.leave_game);
-        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
-                dialogInterface.dismiss();
-            }
-        });
-        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
+        if (gameCanvas.isTimer() && !gameCanvas.field.isDead() && !gameCanvas.field.isWon()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+            builder.setMessage(R.string.are_you_sure_you_want_to_leave_game).setTitle(R.string.leave_game);
+            builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.show();
+        } else super.onBackPressed();
     }
 
     private void createHandler() {
