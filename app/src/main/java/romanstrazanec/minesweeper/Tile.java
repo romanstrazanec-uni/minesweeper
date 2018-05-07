@@ -190,20 +190,12 @@ public class Tile {
         return (state == 2 || state == 4);
     }
 
-    public int getState() {
-        return state;
-    }
-
     public void setState(int state) {
         this.state = state;
     }
 
     public void openTile() {
         state = bomb ? 3 : 2;
-    }
-
-    public void selectTile(boolean select) {
-        state = select ? 1 : 0;
     }
 
     public int getNumberofnearbombs() {
@@ -220,9 +212,5 @@ public class Tile {
 
     public void setColor(int color) {
         this.color = color;
-    }
-
-    public void setColorfulnumbers(boolean colorfulnumbers) {
-        this.colorfulnumbers = colorfulnumbers;
     }
 }

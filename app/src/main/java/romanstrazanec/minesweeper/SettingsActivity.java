@@ -40,9 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_default_settings:
                 ((RadioGroup) findViewById(R.id.difficulty)).check(R.id.easy);
-                etw.setText(String.valueOf(9));
-                eth.setText(String.valueOf(9));
-                etm.setText(String.valueOf(10));
+                setValuesToSizes(9, 9, 10);
                 setSizesEnabled(false);
                 ((RadioGroup) findViewById(R.id.color)).check(R.id.blue);
                 ((CheckBox) findViewById(R.id.colorful_numbers)).setChecked(true);
@@ -73,9 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
             rg.check(R.id.custom);
             setSizesEnabled(true);
         }
-        etw.setText(String.valueOf(s.getWidth()));
-        eth.setText(String.valueOf(s.getHeight()));
-        etm.setText(String.valueOf(s.getMines()));
+        setValuesToSizes(s.getWidth(), s.getHeight(), s.getMines());
 
         rg = findViewById(R.id.color);
         switch (s.getColor()) {
@@ -154,21 +150,15 @@ public class SettingsActivity extends AppCompatActivity {
     public void onRadioGroupClick(View view) {
         switch (((RadioGroup) findViewById(R.id.difficulty)).getCheckedRadioButtonId()) {
             case R.id.easy:
-                etw.setText(String.valueOf(9));
-                eth.setText(String.valueOf(9));
-                etm.setText(String.valueOf(10));
+                setValuesToSizes(9, 9, 10);
                 setSizesEnabled(false);
                 break;
             case R.id.intermediate:
-                etw.setText(String.valueOf(16));
-                eth.setText(String.valueOf(16));
-                etm.setText(String.valueOf(40));
+                setValuesToSizes(16, 16, 40);
                 setSizesEnabled(false);
                 break;
             case R.id.hard:
-                etw.setText(String.valueOf(30));
-                eth.setText(String.valueOf(16));
-                etm.setText(String.valueOf(99));
+                setValuesToSizes(30, 16, 99);
                 setSizesEnabled(false);
                 break;
             case R.id.custom:
@@ -182,5 +172,11 @@ public class SettingsActivity extends AppCompatActivity {
         etw.setEnabled(enabled);
         eth.setEnabled(enabled);
         etm.setEnabled(enabled);
+    }
+
+    private void setValuesToSizes(int width, int height, int mines) {
+        etw.setText(String.valueOf(width));
+        eth.setText(String.valueOf(height));
+        etm.setText(String.valueOf(mines));
     }
 }

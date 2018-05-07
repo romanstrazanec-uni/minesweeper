@@ -202,10 +202,6 @@ public class Field {
         return widthoftile;
     }
 
-    public boolean getFirstClick() {
-        return firstclick;
-    }
-
     public int getFlags() {
         return flags;
     }

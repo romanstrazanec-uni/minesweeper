@@ -1,5 +1,6 @@
 package romanstrazanec.minesweeper;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -21,9 +22,14 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         gameCanvas = new GameCanvas(this);
+
+        Settings s = gameCanvas.dbh.getSettings();
+
+        if (s.getWidth() > s.getHeight())
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        else this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(gameCanvas);
         createHandler();
         updateThread = new UpdateThread(updateHandler);
@@ -93,5 +99,9 @@ public class GameActivity extends AppCompatActivity {
                 super.handleMessage(msg);
             }
         };
+    }
+
+    private void setRequestedOrientation(int width, int height, Context context) {
+
     }
 }
