@@ -17,19 +17,18 @@ public class GameActivity extends AppCompatActivity {
     UpdateThread updateThread;
     Handler updateHandler;
     GameCanvas gameCanvas;
+    DBHelper dbh = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        gameCanvas = new GameCanvas(this);
-
-        Settings s = gameCanvas.dbh.getSettings();
-
+        Settings s = dbh.getSettings();
         if (s.getWidth() > s.getHeight())
             this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         else this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        gameCanvas = new GameCanvas(this);
         setContentView(gameCanvas);
         createHandler();
         updateThread = new UpdateThread(updateHandler);
