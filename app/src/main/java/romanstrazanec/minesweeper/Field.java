@@ -54,13 +54,13 @@ public class Field {
     }
 
     private void setWidthOfTile() {
-        if (windowWidth > windowHeight) {
-            if (width > height) widthoftile = (int) windowHeight / width;
-            else widthoftile = (int) windowHeight / height;
-        } else {
-            if (width > height) widthoftile = (int) windowWidth / width;
-            else widthoftile = (int) windowWidth / height;
+        if (width > height) {
+            int c = width;
+            width = height;
+            height = c;
         }
+        widthoftile = (int) windowWidth / width;
+        if (widthoftile * height > windowHeight) widthoftile = (int) (windowHeight * .75f) / height;
     }
 
     private void makeField(int width, int height, int bombs) {

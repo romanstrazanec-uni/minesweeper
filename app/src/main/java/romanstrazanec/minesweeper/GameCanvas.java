@@ -25,16 +25,15 @@ public class GameCanvas extends View {
         super(context);
         dbh = new DBHelper(context);
         paint = new Paint();
-        size = getMaxPoint(context);
+        setMaxPoint(context);
         newGame();
         longClickCount = 0;
         longClick = false;
     }
 
-    private Point getMaxPoint(Context context) {
-        Point size = new Point();
+    private void setMaxPoint(Context context) {
+        size = new Point();
         ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
-        return size;
     }
 
     public void newGame() {
