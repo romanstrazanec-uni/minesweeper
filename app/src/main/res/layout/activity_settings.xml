@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+    <!-- SIZES -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="@string/difficulty"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/difficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioGroupClick"
+            android:text="@string/easy" />
+
+        <RadioButton
+            android:id="@+id/intermediate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioGroupClick"
+            android:text="@string/intermediate" />
+
+        <RadioButton
+            android:id="@+id/hard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioGroupClick"
+            android:text="@string/hard" />
+
+        <RadioButton
+            android:id="@+id/custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioGroupClick"
+            android:text="@string/custom" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/width"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:hint="@string/width"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/height"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:hint="@string/height"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/mines"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:hint="@string/mines"
+                android:inputType="number" />
+
+        </LinearLayout>
+    </RadioGroup>
+
+    <!-- COLORS -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/color"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/blue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/blue" />
+
+        <RadioButton
+            android:id="@+id/green"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/green" />
+
+        <RadioButton
+            android:id="@+id/yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/yellow" />
+
+        <RadioButton
+            android:id="@+id/red"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/red" />
+
+    </RadioGroup>
+
+
+    <!-- COLORFUL NUMBERS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:paddingTop="6dp"
+            android:text="@string/colorful_numbers" />
+
+        <CheckBox
+            android:id="@+id/colorful_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <!-- CHECKOUT -->
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="15dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:onClick="save"
+        android:text="@string/save" />
+
+</LinearLayout>

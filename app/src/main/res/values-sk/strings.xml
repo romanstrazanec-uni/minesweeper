@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Míny</string>
+    <string name="new_game">Nová Hra</string>
+    <string name="leave_game">Opustiť Hru</string>
+    <string name="are_you_sure_you_want_to_leave_game">Naozaj si prajete opustiť hru?</string>
+    <string name="yes">Áno</string>
+    <string name="no">Nie</string>
+    <string name="settings">Nastavenia</string>
+    <string name="save">Uložiť</string>
+    <string name="difficulty">Obtiažnosť</string>
+    <string name="easy">Ľahké</string>
+    <string name="intermediate">Stredne ťažké</string>
+    <string name="hard">Ťažké</string>
+    <string name="custom">Vlastné</string>
+    <string name="width">Šírka</string>
+    <string name="height">Výška</string>
+    <string name="mines">Míny</string>
+    <string name="color">Farba</string>
+    <string name="blue">Modrá</string>
+    <string name="green">Zelená</string>
+    <string name="yellow">Žltá</string>
+    <string name="red">Červená</string>
+    <string name="colorful_numbers">Farebné čísla</string>
+    <string name="changes_appear_in_new_game">Zmeny sa zobrazia v novej hre.</string>
+    <string name="last_saved">Naposledy uložené</string>
+    <string name="default_settings">Základné nastavenia</string>
+</resources>
