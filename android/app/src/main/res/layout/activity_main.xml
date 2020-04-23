@@ -17,13 +17,13 @@
         android:text="@string/new_game" />
 
     <Button
-        android:id="@+id/settings"
+        android:id="@+id/Settings"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="20dp"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorAccent"
-        android:onClick="settings"
-        android:text="@string/settings" />
+        android:onClick="Settings"
+        android:text="@string/Settings" />
 
 </LinearLayout>
